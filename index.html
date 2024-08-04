@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="mycss.css">
+        <title>Striff</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lunasima&family=Tektur:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+    </head>
+    <Body class="ocean"> 
+          
+        <navbar>
+            <ul class="navlist">
+                <li class="logo-img"><img src="save.png" alt="Save Water" width="70px" height="70px" ></li>
+                <li><a href="#" class="logo" onclick="redto1()">Tips</a></li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#Contact" id="scrollToContact">Contact us</a></li>
+            </ul>
+            
+        </navbar>
+
+    <div class="about">
+        <center><b><h1>WATER FOOTPRINTS</h1></b></center>
+        <br>
+        <p>
+            A water footprint is a measure of the total amount of water that is used directly or indirectly by an individual, organization, product, or country in various activities and processes. It helps to assess the environmental impact of water use and can be a useful tool for understanding and managing water resources sustainably.
+        </p>
+    </div>
+    
+    <br>
+    <div id="calc" class="calc">
+        <center><button onclick="redto2()">Calculator</button></center>
+    </div>
+    <div class="types">
+        <h1>Types of Water Footprints:</h1>
+        <ul>
+            <li>
+                <span>Blue Water Footprint:</span> This represents the volume of freshwater withdrawn from surface or groundwater sources for activities such as irrigation, industrial processes, and domestic water use. It is often associated with visible water use.
+                
+            </li>
+            <li>
+                <span>Green Water Footprint:</span> This accounts for the volume of rainwater that is stored in the soil and used by plants for growth, primarily in agriculture and forestry. It is less visible than blue water use and is related to the natural water cycle.
+            </li>
+            <li>
+                <span>Grey Water Footprint:</span> This quantifies the amount of freshwater required to dilute and treat pollutants and contaminants generated during a specific process or activity. It reflects the pollution aspect of water use.
+Water footprints are typically measured in cubic meters (m³) or liters (L) of water. The calculation includes both direct and indirect water use. Direct water use refers to water consumed directly by an activity (e.g., watering crops), while indirect water use refers to water required for the production of goods and services (e.g., the water used in manufacturing products).
+            </li>
+        </ul>
+    </div>
+    <br>
+    <hr>
+    
+    <h1>Types Of Footprints In Various Places Of India</h1>
+    <div class="imgs" id="imgs">
+        <ul>
+            <li><img title="Green Water Footprint" src="green.jpg"></li>
+            <li><img title="Blue Water Footprint" src="blue.jpg"></li>
+            <li><img title="Grey Water Footprint" src="grey.jpg"></li>
+            <li><img title="Total Water Footprint" src="total.jpg"></li>
+        </ul>
+    </div>
+    <hr>
+    <p>
+        <strong>You can translate the content of this page by selecting a language in the select box.</strong>
+    </p>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+    }
+</script>
+<script type="text/javascript"
+        src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+</script>
+<br>
+<hr><div class="end">
+    <section id="Contact">
+        <button class="contact" id="contact" onclick="myf()">Contact Us</button>
+    </section>      
+        <br>
+        <p id="dem1"></p>
+        <button class="team" id="team" onclick="myins()">Our Team Info</button>
+        <br>
+        <p id="dem2"></p>
+        <button class="learn" id="learn" onclick="gotolearn()">Learnmore</button>
+            <script src="mysc.js"></script></div>
+    </Body>
+</html>

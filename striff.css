@@ -1,0 +1,154 @@
+*,
+:before,
+:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: -40vh;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom,#FFF5E0, white);
+}
+.container{
+  width: 9.25em;
+  height: 1.15em;
+  font-size: 4rem;
+  font-family: sans-serif;
+  position: relative;
+}
+.container div {
+  position: absolute;
+  left: 0;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.upper {
+  top: 0;
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+  font-size: 100px;
+  height: 79%;
+  color: black;
+  overflow: hidden;
+  z-index: 3;
+  animation: moveUp 1.5s ease-in-out 1;
+  background-color:#FFF7E5;
+  transform: translate(0px,-200px);
+}
+.lower {
+  bottom: 2;
+  font-size: 100px;
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+  height: 150%;
+  background: linear-gradient(180deg, #FFF9EC 52.5%, black 52.5%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  z-index: 1;
+  animation: moveDown 1.5s ease-in-out 1;
+  transform: translate(0px,-200px);
+}
+.inside {
+  position: absolute;
+  top: 40%;
+  -webkit-text-stroke: 1px black;
+  transform: translateY(-40%);
+  text-align: center;
+  z-index: 2;
+  font-size: 30px;
+  color: skyblue;
+  transform: translate(0px,-199px);
+}
+@keyframes moveUp {
+  0%,
+  100% {
+    top: 0;
+  }
+  50%,
+  70% {
+    top: -45px;
+  }
+}
+@keyframes moveDown {
+  0%,
+  100% {
+    top: 0;
+  }
+  50%,
+  70% {
+    top: 30px;
+  }
+}
+@media (max-width: 424px) {
+  .container {
+    font-size: 2.5rem;
+  }
+  .inside {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 320px) {
+  .container{
+    font-size: 2rem;
+  }
+  .inside {
+    font-size: 0.5rem;
+  }
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.cont {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #0056b3;
+}
+p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+.cont{
+  animation: fadeIn 1s ease;
+  }

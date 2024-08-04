@@ -1,0 +1,218 @@
+body{
+    background-color: #FFFAEE;
+}
+html {
+    scroll-behavior: smooth;
+  }
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans',sans-serif;
+    color: black;
+    font-family: 'poppins',sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+h1{
+    color: rgb(42, 171, 42);
+}
+.navlist{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    padding-top: px;
+    padding-right: 30px;
+}
+
+}
+.logo-img{
+    padding-right: 1%;
+    float:left;
+    size:200%;
+}
+.logo{
+    padding-left: ;
+}
+li{
+    padding-left: 20px;
+}
+.about{
+    padding-top: 80px;
+    font-size: x-large;
+}
+/* button{
+    color: white;
+    font-weight: 300;
+    background-color: rgb(48, 180, 48);
+    border-radius: 5px;
+    border-color: green;
+    padding:6px;
+}
+button:hover{
+
+} */
+
+button {
+    padding: 7px 15px;
+    background-color: #1fba52;
+    color: #ffffff;
+    border: none;
+    font-size: medium;
+    letter-spacing: 2px;
+    border-radius:6px;
+    font-weight: 800;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Define the hover effect */
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+.about p{
+    padding-left: 8vh;
+    padding-right: 8vh;
+    background-image:url(leaf\ on\ white.jpg) ;
+    background-color: rgba(255, 255, 255, 0.241);
+    color: black;
+    padding-top: 4vh;
+    padding-bottom: 3vh;
+    background-size: cover;
+    border-radius: 8px;
+    margin: 19px 15vw;
+    font-weight: 400;
+    font-family: 'Crete Round';font-size: 22px;
+    font-family: 'Lunasima', sans-serif;
+    font-family: 'Tektur', cursive;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #3498db; /* Background color of the box */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    transition: background-color 1s ease, box-shadow 1s ease;
+}
+.about p:hover{
+    background-color: #2980b9; /* New background color on hover */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7); /* New box shadow on hover */
+    transform: scale(1.01); /* Zoom in by 10% on hover */
+}
+.types h1{
+    padding-top: 7vh;
+    padding-left: 4vw;
+    font-size: xx-large;
+    cursor: pointer;
+    transition: text-decoration 0.3s ease;
+}
+a {
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    color: #54b3d6;
+    padding: 0 .27rem;
+    margin: 0 -.25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+  a:hover {
+    color: #fff;
+    box-shadow: inset 200px 0 0 0 rgb(18, 144, 18);;
+  }
+  
+  /* Presentational styles */
+  a {
+    color: rgb(7, 128, 7);
+    font-family: 'Poppins', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+  
+  body {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+  }
+  
+
+h1{
+   display: inline-block;
+   position: relative;
+   color: rgb(18, 154, 18);
+ }
+ 
+h1:after {
+   content: '';
+   position: absolute;
+   width: 100%;
+   transform: scaleX(0);
+   height: 2px;
+   bottom: 0;
+   left: 0;
+   background-color: rgb(18, 154, 18);
+   transform-origin: bottom right;
+   transition: transform 0.25s ease-out;
+ }
+ 
+h1:hover:after {
+   transform: scaleX(1);
+   transform-origin: bottom left;
+   padding-left: 1vw;
+ }
+.types ul li{
+    padding-top: 2vh;
+    padding-left: 8vw;
+    padding-right: 4vw;
+    font-weight: 400;
+    font-family: 'Crete Round';font-size: 22px;
+    font-family: 'Lunasima', sans-serif;
+    font-family: 'Tektur', cursive;
+    font-family: 'Varela Round', sans-serif;
+}
+.types ul li span{
+    font-weight:700;
+}
+.types ul li span : after{
+    width:100%;
+    height:2px;
+}
+hr{
+    border: 1px black double;
+}
+.tips{
+    margin-top:4vh;
+}
+.calc{
+    padding-bottom: 5vh;
+}
+.various{
+    font-weight: 600;
+    font-size: xx-large;
+    color: rgb(18, 154, 18);
+    padding-bottom: 12vh;
+}
+.imgs ul{
+    display: flex;
+    padding-left: 3vw;
+    padding-bottom: 3vh;
+    padding-top:3vh;
+}
+.imgs ul img{
+    height:45vh;
+    width: auto;
+    display: flex;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 13px;
+}
+.imgs ul img:hover{
+    transform: scale(1.02); /* Increase size on hover (adjust as needed) */
+    opacity: 1;
+}
+.end{
+    display: flex;
+    padding:2%;
+}
+.end button{
+    margin:1%;
+}
+
+
+
