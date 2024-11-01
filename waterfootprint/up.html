@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #displayValue {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #eef7ff;
+            border-radius: 4px;
+        }
+        .loading {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #errorMessage {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Water Footprint Calculator</h1>
+        <p>Enter a food item or upload an image to calculate its water footprint.</p>
+        <input type="text" id="inputField" placeholder="Enter a food item...">
+        <button onclick="getValue()">Calculate Water Footprint</button>
+        <input type="file" id="imageUpload" accept="image/*">
+        <button onclick="uploadImage()">Upload and Analyze Image</button>
+        <div id="displayValue"></div>
+        <div id="errorMessage"></div>
+        <div id="loading" class="loading" style="display:none;">Processing...</div>
+    </div>
+
+    <script>
+        let foodItems = {};
+
+        // Fetch food items data
+        fetch('foodItems.json')
+            .then(response => response.json())
+            .then(data => {
+                foodItems = data;
+            })
+            .catch(error => {
+                console.error('Error loading food items:', error);
+                document.getElementById('errorMessage').textContent = 'Error loading food data. Please try again later.';
+            });
+
+        function fuzzySearch(query, items) {
+            return Object.keys(items).filter(key => {
+                const similarity = key.split('').reduce((acc, char, i) => {
+                    return acc + (query.toLowerCase().includes(char.toLowerCase()) ? 1 : 0);
+                }, 0) / Math.max(key.length, query.length);
+                return similarity > 0.7; // Adjust this threshold as needed
+            });
+        }
+
+        function getValue() {
+            const inputValue = document.getElementById("inputField").value.toLowerCase();
+            const displayElement = document.getElementById("displayValue");
+            const errorElement = document.getElementById("errorMessage");
+            
+            if (!inputValue.trim()) {
+                errorElement.textContent = "Please enter a food item.";
+                displayElement.textContent = "";
+                return;
+            }
+
+            const matches = fuzzySearch(inputValue, foodItems);
+            
+            if (matches.length > 0) {
+                const bestMatch = matches[0];
+                const foodItem = foodItems[bestMatch];
+                displayElement.textContent = `Water Footprint of ${bestMatch}: ${foodItem.wft} ${foodItem.unit}`;
+                errorElement.textContent = "";
+            } else {
+                displayElement.textContent = "";
+                errorElement.textContent = "No matching items found. Please try another food item.";
+            }
+        }
+
+        function uploadImage() {
+            const fileInput = document.getElementById("imageUpload");
+            const displayValue = document.getElementById("displayValue");
+            const errorElement = document.getElementById("errorMessage");
+            const loading = document.getElementById("loading");
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                errorElement.textContent = "Please select an image to upload.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("photo", fileInput.files[0]);
+
+            loading.style.display = "block";
+            displayValue.textContent = "";
+            errorElement.textContent = "";
+
+            fetch("http://localhost:5500/classify", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                loading.style.display = "none";
+                if (data.error) {
+                    errorElement.textContent = "Error: " + data.error;
+                } else {
+                    const classification = data.classification.toLowerCase();
+                    if (foodItems.hasOwnProperty(classification)) {
+                        const foodItem = foodItems[classification];
+                        displayValue.textContent = `Detected: ${classification}. Water Footprint: ${foodItem.wft} ${foodItem.unit}`;
+                    } else {
+                        displayValue.textContent = `Detected: ${classification}. No water footprint data available for this item.`;
+                    }
+                }
+            })
+            .catch(error => {
+                loading.style.display = "none";
+                errorElement.textContent = "Error: " + error.message;
+            });
+        }
+    </script>
+</body>
+</html>

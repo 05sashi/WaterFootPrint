@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/tipscss.css') }}">
+        <title>Tips</title>
+    </head>
+    <body>
+        <center><h1>Water Conservation Tips</h1></center>
+        <center><h1>Remember, every drop counts! Let's do our part in conserving this precious resource</h1></center>
+        <div class="video-background">
+            <video autoplay muted loop id="bgVideo">
+                <source src="{{ url_for('static', filename='videos/back.mp4') }}" type="video/mp4">
+            </video>
+        <div class="content">
+        <ul>
+            <li>Aim for shorter showers and consider turning off the water while soaping</li>
+            <br>
+            <li>Set up a rainwater harvesting system to collect rainwater for outdoor use, such as watering plants and gardens.</li>
+            <br>
+            <li>Instead of using a hose to clean driveways and sidewalks, use a broom to sweep away debris.</li>
+            <br>
+            <li>Insulate hot water pipes to reduce the time it takes for hot water to reach the faucet, saving both water and energy.</li>
+            <br>
+            <li>Don't run the hose while washing your car: Clean the car using a pail of soapy water. Use the hose only for rinsing.</li>
+            <br>
+            <li>Consider upgrading to water-efficient appliances like dishwashers and washing machines that use less water per cycle.</li>
+            <br>
+            <li>Don't use the toilet as an ashtray or wastebasket: Every time you flush a cigarette butt, facial tissue, or other small bit of trash, you're wasting gallons of water.</li>
+            <br>
+            <li>Set up a rainwater harvesting system to collect rainwater for outdoor use, such as watering plants and gardens.</li>
+        </ul>
+        </div>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {pageLanguage: 'en'},
+                    'google_translate_element'
+                );
+            }
+        </script>
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </body>
+</html>

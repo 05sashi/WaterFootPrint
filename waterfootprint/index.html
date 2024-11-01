@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="indexcss.css">
+    <title>Software Engineering PROJECT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lunasima&family=Tektur:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body class="ocean"> 
+    <navbar>
+        <ul class="navlist">
+            <li class="logo-img"><img src="save.png" alt="Save Water" width="70px" height="70px"></li>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#" class="logo" onclick="redto1()">Tips</a></li>
+            <li><a href="#Contact" id="scrollToContact">Contact us</a></li>
+        </ul>
+    </navbar>
+
+    <div class="about">
+        <center><b><h1>WATER FOOTPRINTS</h1></b></center>
+        <p>
+            A water footprint is a measure of the total amount of water used directly or indirectly by an individual, organization, product, or country. It helps to assess the environmental impact of water use and can be a tool for managing water resources sustainably.
+        </p>
+    </div>
+
+    <div id="calc" class="calc">
+        <center><button onclick="openCalculator()">Calculator</button></center>
+    </div>
+
+    <div class="types">
+        <h1>Types of Water Footprints:</h1>
+        <ul>
+            <li><span>Green Water Footprint:</span> The volume of rainwater stored in the soil used by plants for growth.</li>
+            <li><span>Blue Water Footprint:</span> The volume of freshwater withdrawn from surface or groundwater for activities like irrigation and domestic use.</li>
+            <li><span>Grey Water Footprint:</span> The amount of freshwater required to dilute pollutants and contaminants from specific processes.</li>
+        </ul>
+    </div>
+
+    <h1>Types Of Footprints In Various Places Of India</h1>
+    <div class="imgs" id="imgs">
+        <ul>
+            <li><img title="Green Water Footprint" src="green.jpg"></li>
+            <li><img title="Blue Water Footprint" src="blue.jpg"></li>
+            <li><img title="Grey Water Footprint" src="grey.jpg"></li>
+            <li><img title="Total Water Footprint" src="total.jpg"></li>
+        </ul>
+    </div>
+
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <hr>
+    <section id="Contact">
+        <button class="contact" id="contact" onclick="myf()">Contact Us</button>
+        <p id="dem1"></p> <!-- Contact info will be displayed here -->
+    </section>
+    
+    <button class="learn" id="learn" onclick="gotolearn()">Learn More</button>
+
+    <script src="mysc.js"></script>
+
+    <!-- Script to open the Calculator page -->
+    <script>
+        function openCalculator() {
+            window.location.href = 'calculator.html'; // Path to the calculator page
+        }
+
+        function myf() {
+            document.getElementById("dem1").innerHTML = "Name: Sashidhar Reddy<br>REG.NO: 22BCE1511<br>PHONE.NO: 9392440588";
+        }
+
+        function redto1() {
+            location.href = "Tips.html";
+        }
+        function gotolearn(){
+    location.href="https://en.wikipedia.org/wiki/Water_footprint";
+}
+    </script>
+</body>
+</html>
